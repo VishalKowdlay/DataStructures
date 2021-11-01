@@ -1,5 +1,3 @@
-package com.company;
-
 public class Hero {
     private Location loc;
     private String dir;
