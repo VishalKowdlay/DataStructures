@@ -1,5 +1,3 @@
-package com.company;
-
 public class Location {
     private int r;
     private int c;
