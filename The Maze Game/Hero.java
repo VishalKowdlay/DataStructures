@@ -2,12 +2,18 @@ public class Hero {
     private Location loc;
     private String dir;
     private String[][] maze;
+    public static int SIGHT = 4;
 
     public Hero(Location loc, String dir, String[][] maze)
     {
         this.loc = loc;
         this.dir = dir;
         this.maze = maze;
+    }
+
+    public String getDir()
+    {
+        return dir;
     }
 
     public Location getLocation()
