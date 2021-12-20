@@ -1,7 +1,7 @@
 /* Car object that will retain all of the relevant statistical data
 1.Acceleration 2.Miles Per Gallon 3.Horsepower 4.Engine Size 5.Weight 6.Cylinders 7.CarID (Country of origin is not necessary for priority, but must exist).
 Car ID	Miles Per Gallon	Engine Size (cube in)	Horse powers	Weight in pounds	Acceleration (0 to 60)	Country of Origin	Number of Cylinders */
-public class Car
+public class Car implements Comparable<Car>
 {
     private int carID, mpg, engineSize, horsepower, weight, acceleration, country, cylinders;
     
@@ -18,6 +18,40 @@ public class Car
         this.cylinders = cylinders;
     
 
+    }
+
+    public int compareTo(Car other)
+    {
+        if(acceleration < other.getAcceleration())
+            return -1;
+        if(acceleration > other.getAcceleration())
+            return 1;
+        if(mpg < other.getMpg())
+            return -1;
+        if(mpg > other.getMpg())
+            return 1;
+        if(horsepower < other.getHorsepower())
+            return -1;
+        if(horsepower > other.getHorsepower())
+            return 1;
+        if(engineSize < other.getEngineSize())
+            return -1;
+        if(engineSize > other.getEngineSize())
+            return 1;
+        if(weight < other.getWeight())
+            return -1;
+        if(weight > other.getWeight())
+            return 1;
+        if(cylinders < other.getCylinders())
+            return -1;
+        if(cylinders > other.getCylinders())
+            return 1;
+        if(carID < other.getCarID())
+            return -1;
+        if(carID > other.getCarID())
+            return 1;
+            
+        return 0;
     }
 
     public int getCarID() {
@@ -87,16 +121,15 @@ public class Car
 
     @Override
     public String toString() {
-        return "{" +
-            " carID='" + getCarID() + "'" +
-            ", mpg='" + getMpg() + "'" +
-            ", engineSize='" + getEngineSize() + "'" +
-            ", horsepower='" + getHorsepower() + "'" +
-            ", weight='" + getWeight() + "'" +
-            ", acceleration='" + getAcceleration() + "'" +
-            ", country='" + getCountry() + "'" +
-            ", cylinders='" + getCylinders() + "'" +
-            "}";
+        return String.format("%-12s%-8s%-17s%-17s%-14s%-17s%-11s%s",
+            "carID=" + getCarID(),
+            "mpg=" + getMpg(),
+            "engineSize=" + getEngineSize(),
+            "horsepower=" + getHorsepower(),
+            "weight=" + getWeight(),
+            "acceleration=" + getAcceleration(),
+            "country=" + getCountry(),
+            "cylinders=" + getCylinders());
     }
 
     
